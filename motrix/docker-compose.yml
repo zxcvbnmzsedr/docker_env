@@ -1,0 +1,18 @@
+version: "2.3"
+services:
+  motrix:
+    image: msjpq/motrix-vnc
+    container_name: motrix
+    network_mode: host
+    environment:
+      - PUID=0
+      - PGID=0
+      - SCR_WIDTH=1600
+      - SCR_HEIGHT=900
+    volumes:
+      - ./appconfig:/config
+      - /srv/dev-disk-by-uuid-c78a92c0-7c20-4480-b997-1f88c9d0cd4d/cache_copy:/downloads
+        #  ports:
+        #- 5900:5900
+        #- 8082:8080
+    restart: unless-stopped

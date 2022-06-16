@@ -1,0 +1,20 @@
+version: "2.3"
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:4.4.3
+    container_name: qbittorrent
+    network_mode: host
+    environment:
+      - PUID=0
+      - PGID=0
+      - WEBUI_PORT=8082
+      - GID=0 # The GID to run emby as (default 2)
+      - GIDLIST=0 # A comma-separated list of additional GIDs to run emby as (default: 2)
+    volumes:
+      - ./config:/config
+      - /srv/dev-disk-by-uuid-c78a92c0-7c20-4480-b997-1f88c9d0cd4d/cache_copy:/downloads
+        #    ports:
+        #  - 6881:6881
+        #- 6881:6881/udp
+        #- 8082:8082
+    restart: unless-stopped
