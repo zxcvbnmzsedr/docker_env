@@ -1,0 +1,28 @@
+address:
+  嗯嗯:
+    - name: task
+      url: http://task.shiyitopo.tech
+      icon: task.png
+    - name: note
+      url: http://note.shiyitopo.tech
+      icon: note.png
+
+    - name: zdir
+      url: http://zdir.shiyitopo.tech
+      icon: zdir.png
+    - name: emby
+      url: http://media.shiyitopo.tech
+      icon: media.png
+    - name: nas
+      url: http://omv.shiyitopo.tech
+      icon: nas.png
+    
+    - name: webdav
+      url: http://webdav.shiyitopo.tech
+      icon: webdav.png
+    - name: 阿里云盘
+      url: http://ali_webdav.shiyitopo.tech
+      icon: aliyun.jpeg
+    - name: 路由
+      url: http://openwrt.shiyitopo.tech
+      icon: openwrt.png

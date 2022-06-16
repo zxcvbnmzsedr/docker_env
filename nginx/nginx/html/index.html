@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <title>天增的小确幸</title>
+</head>
+<body>
+<div id="wrap">
+    <div id="top">
+        <div id="logo">
+            <img class="logo" src="img/logo.png">
+        </div>
+    </div>
+    <div id="main">
+        <!-- 外网访问地址 -->
+        <div id="app" class="app animated fadeInLeft">
+            <ul id="app_ul">
+
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/yaml.min.js"></script>
+<script>
+    (function () {
+        "use strict";
+        $(document).ready(function () {
+            $.get('address.yaml')
+                .done(function (data) {
+                    const address = YAML.parse(data).address;
+                    let html = '';
+                    Object.keys(address).forEach(key => {
+                        address[key].forEach(a => {
+                            html += `
+                                <li>
+									<a href="${a.url}" class="address" target="_blank">
+									<img class="shake" src="img/${a.icon}" />
+									<strong>${a.name}</strong>
+									</a>
+								</li>
+                           `
+                        })
+                    })
+                    $("#app_ul").html(html);
+
+                });
+        });
+    }());
+</script>
+</body>
+
+</html>
