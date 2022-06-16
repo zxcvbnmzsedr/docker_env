@@ -4,7 +4,7 @@ services:
     build: .
     container_name: pan_115
     volumes:
-      - /srv/dev-disk-by-uuid-c78a92c0-7c20-4480-b997-1f88c9d0cd4d/cache_copy/:/config/Downloads/115download
+      - ./Downloads/:/config/Downloads/115download
     ports:
        - 5900:5900
        - 5800:5800
