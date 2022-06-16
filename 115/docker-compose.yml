@@ -3,6 +3,9 @@ services:
   pan_115:
     build: .
     container_name: pan_115
+    environment:
+      - USER_ID=0
+      - GROUP_ID=0
     volumes:
       - ./Downloads/:/config/Downloads/115download
     ports:
