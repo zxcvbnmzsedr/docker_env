@@ -1,0 +1,14 @@
+version: "2.1"
+services:
+  resilio-sync:
+    image: resilio/sync:2.7.3
+    container_name: resilio-sync
+    privileged: true
+    volumes:
+      - ./config:/mnt/sync/config
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f/cache_copy/s:/mnt/sync/folders/cache_copy
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f/Documents:/mnt/sync/folders/Documents
+    ports:
+      - "8888:8888"
+      - "55555:55555"
+    restart: unless-stopped
