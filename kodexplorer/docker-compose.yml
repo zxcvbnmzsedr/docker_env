@@ -1,4 +1,4 @@
-version: "2.1"
+version: '3'
 services:
   kodexplorer:
     image: baiyuetribe/kodexplorer
@@ -8,3 +8,40 @@ services:
     ports:
       - "889:80"
     restart: unless-stopped
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    expose:
+      - 6379
+  onlyoffice:
+    image: onlyoffice/documentserver
+    container_name: onlyoffice
+    hostname: onlyoffice
+    environment:
+      - REDIS_SERVER_HOST=redis
+      - REDIS_SERVER_PORT=6379
+    volumes:
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f/kode/onlyoffice/data:/var/www/onlyoffice/Data
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f/kode/onlyoffice/logs:/var/log/onlyoffice
+    restart: always
+    expose:
+      - 9000
+      - 9001
+    ports:
+      - "9000:80"
+      - "9001:443"
+    links:
+      - db
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f/kode/mariadb/db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=tianzeng
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456
