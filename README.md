@@ -7,3 +7,4 @@
 + [BT下载QBT](qbt)
 + [BT下载Transmission](transmission)
 + [可道云](kodexplorer)
++ [resilio-sync](resilio-sync)
