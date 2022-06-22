@@ -4,14 +4,14 @@ services:
     image: xinjiawei1/emby_unlockd:latest
     container_name: embyserver
     environment:
-      - UID=0 # The UID to run emby as (default: 2)
-      - GID=0 # The GID to run emby as (default 2)
-      - GIDLIST=0 # A comma-separated list of additional GIDs to run emby as (default: 2)
+      - UID=0
+      - GID=0
+      - GIDLIST=0
     volumes:
       - ./config:/config
       - /srv/dev-disk-by-uuid-c78a92c0-7c20-4480-b997-1f88c9d0cd4d:/mnt/share
     ports:
-      - 8096:8096 # HTTP port
+      - "8096:8096"
     devices:
-      - /dev/dri:/dev/dri # VAAPI/NVDEC/NVENC render nodes
+      - /dev/dri:/dev/dri
     restart: unless-stopped

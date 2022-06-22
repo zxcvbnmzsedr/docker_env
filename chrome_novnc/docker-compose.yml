@@ -1,0 +1,12 @@
+version: "2.3"
+services:
+  chrome:
+    image: vital987/chrome-novnc:latest
+    container_name: chrome
+    environment:
+      - VNC_PASS=123456
+    volumes:
+      - /srv/dev-disk-by-uuid-c78a92c0-7c20-4480-b997-1f88c9d0cd4d:/mnt/share
+    ports:
+      - "9870:8080"
+    restart: unless-stopped
