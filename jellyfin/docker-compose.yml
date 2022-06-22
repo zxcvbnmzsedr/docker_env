@@ -1,0 +1,18 @@
+version: "2.3"
+services:
+  jellyfin:
+    image: nyanmisaka/jellyfin:220619-amd64
+    container_name: jellyfin
+    environment:
+      - UID=0
+      - GID=0
+      - GIDLIST=0
+    volumes:
+      - ./config:/config
+      - ./cache:/cache
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f:/mnt/share
+    ports:
+      - "8096:8096"
+    devices:
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
