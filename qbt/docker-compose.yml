@@ -12,7 +12,7 @@ services:
       - GIDLIST=0 # A comma-separated list of additional GIDs to run emby as (default: 2)
     volumes:
       - ./config:/config
-      - /srv/dev-disk-by-uuid-c78a92c0-7c20-4480-b997-1f88c9d0cd4d/cache_copy:/downloads
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f/cache_copy:/downloads
         #    ports:
         #  - 6881:6881
         #- 6881:6881/udp

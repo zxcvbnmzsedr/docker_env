@@ -1,6 +1,18 @@
 version: "2.3"
 services:
-  emby:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - 8095:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/embyCache:/var/cache/nginx/emby
+    restart: always
+    depends_on:
+      - embyserver
+  embyserver:
     image: xinjiawei1/emby_unlockd:latest
     container_name: embyserver
     environment:
