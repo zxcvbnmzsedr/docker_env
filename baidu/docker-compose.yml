@@ -1,0 +1,14 @@
+version: "2.1"
+services:
+  baidu:
+    image: johngong/baidunetdisk:latest
+    container_name: baidu
+    environment:
+      - USER_ID=0
+      - GROUP_ID=0
+    volumes:
+      - ./config/:/config
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f:/config/baidunetdiskdownload
+    ports:
+      - 5900:5900
+      - 5800:5800

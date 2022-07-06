@@ -7,9 +7,11 @@ services:
       - USER_ID=0
       - GROUP_ID=0
       - TZ=Asia/Shanghai
+      # 处理中文字幕乱码问题
+      - ENABLE_CJK_FONT=1
     volumes:
       - ./config:/config
-      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f:/media
+      - /srv/dev-disk-by-uuid-51433fa1-0994-4003-be4b-f47e3f50c13f:/media1
     ports:
       - "8097:5800"
     restart: unless-stopped
