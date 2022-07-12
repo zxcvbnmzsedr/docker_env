@@ -1,0 +1,17 @@
+version: '2'
+services:
+  redis:
+    image: redis:7.0.2
+    container_name: redis
+    command:
+      - /bin/sh
+      - -c
+      - redis-server --requirepass "$${REDIS_PASSWORD:?REDIS_PASSWORD variable is not set}"
+    restart: always
+    environment:
+      - REDIS_PASSWORD=123456
+    ports:
+      - "6379:6379"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./data:/data
