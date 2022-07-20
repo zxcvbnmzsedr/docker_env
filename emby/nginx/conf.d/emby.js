@@ -59,12 +59,13 @@ async function redirect2Pan(r) {
                 return;
             }
         }
-        r.error(alistRes);
-        r.return(404, alistRes);
+        r.warn(`not found direct ${alistRes}`);
+        r.internalRedirect("@backend");
         return;
+
     }
-    r.error(alistRes);
-    r.return(500, alistRes);
+    r.warn(`not found direct ${alistRes}`);
+    r.internalRedirect("@backend");
     return;
 }
 
