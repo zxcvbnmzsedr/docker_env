@@ -1,0 +1,10 @@
+version: "2.3"
+services:
+  podsync:
+    container_name: podsync
+    image: mxpv/podsync:latest
+    ports:
+      - 8081:8080
+    volumes:
+      - ./app/data:/data/
+      - ./config.toml:/app/config.toml

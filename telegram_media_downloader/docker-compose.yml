@@ -1,0 +1,8 @@
+version: "2.3"
+services:
+  telegram_media_downloader:
+    build: .
+    container_name: telegram_media_downloader
+    restart: unless-stopped
+    volumes:
+      - ./config.yaml:/app/config.yaml

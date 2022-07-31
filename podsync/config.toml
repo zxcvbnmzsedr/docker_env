@@ -1,0 +1,10 @@
+[server]
+port = 8081
+data_dir = "/data/podsync/"
+
+[tokens]
+youtube = "AIzaSyCewHqHopmUUird50z0pBQQcZjGCfmI4A8"
+
+[feeds]
+[feeds.ID1]
+url = "https://www.youtube.com/playlist?list=PLBpnbqCojy_DX_AVboLhYvRbfcQAz3UqF"
